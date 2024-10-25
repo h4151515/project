@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Noto Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Gugi", sans-serif;
+}
+
+header {
+    background-image: linear-gradient(to top, rgba(0,0,0,8), rgba(0,0,0,0.2)), url('../images/main-bg.jpg');
+    background-size: cover;
+    background-position: center top;
+}
+
+.chief {
+    background-image: url('../images/chef.jpg');
+    background-size: cover;
+    background-position: center top;
+}
+
+#sns-links {
+    background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('../images/sns-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.card-hover:hover {
+    background-color: #ffc10726;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: 'TmonMonsori';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
