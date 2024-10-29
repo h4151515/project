@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리다이렉트 페이지</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        .loader {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        // 페이지가 로드되면 자동으로 리다이렉트
+        window.onload = function() {
+            window.location.href = "https://blog.naver.com/pauljeoung"; // 리다이렉트할 URL로 변경하세요.
+        };
+    </script>
+</head>
+<body>
+    <div>
+        <div class="loader"></div>
+        <!-- <h1>잠시 기다려 주세요. 곧 이동합니다...</h1> -->
+    </div>
+</body>
+</html>
