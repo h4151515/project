@@ -17,16 +17,4 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/members/new")
-    public String joinMember() {
-        System.out.println(getClass() + "   /members/new 위치로 이동합니다");
-        return "new";
-    }
-
-    @GetMapping("/members")
-    public String getMemberList() {
-        System.out.println(getClass() + "   /members 위치로 이동합니다");
-        return "members";
-    }
-
 }
