@@ -9,6 +9,6 @@ public class MemberController {
     @GetMapping("/members")
     public String createMember() {
         System.out.println(getClass() + "   /members/new 위치로 이동합니다 (createMemberForm.html로 찾아가기)");
-        return "createMemberForm";
+        return "members/createMemberForm";
     }
 }
