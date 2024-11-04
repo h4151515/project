@@ -1,0 +1,45 @@
+<html lang="en" layout:decorate="~{layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div class="container max600" layout:fragment="content">
+    <h1 class="text-center mt-3">회원 가입</h1>
+        <div class="py-3 ">
+            <h3 class="md-2">회원정보 입력</h3>
+            <form th:action th:Object="${memberForm}" method="post">
+                <!-- id="loginId" name="loginId" 를 자동 생성 해줌-->
+                <label th:for="loginId" class="form-label">로그인 ID</label>
+                <input type="text"  th:field="*{loginId}" class="form-control" th:errorClass="field-error">
+                <div th:errors="*{loginId}" class="field-error"></div>
+
+                <label th:for="password" class="form-label">비밀번호</label>
+                <input type="password" th:field="*{password}" class="form-control" th:errorClass="field-error">
+                <div th:errors="*{password}" class="field-error"></div>
+
+                <label th:for="name" class="form-label">이름</label>
+                <input type="text" th:field="*{name}" class="form-control" th:errorClass="field-error" required>
+                <div th:errors="*{name}" class="field-error"></div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="w-100 btn btn-lg btn-primary" >회원가입</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="w-100 btn btn-lg btn-dark" th:onclick="|location.href='@{/}'|">취소</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+</html>
+<!--
+    1. thymeleaf 변수 사용 문법
+    <p th:text="${variableName}">기본 텍스트</p>
+    2. thymeleaf 조건문 사용 문법
+    <div th:if="${condition}">
+        조건이 참일 때 <div> 블럭에 보여질 내용
+    </div>
+    3. thymeleaf 폼데이터 바인딩 문법
+    <form th:action="@{/submit}" method="post" th:object="${user}">
+        <input type="text" th:field="*{name}" placeholder="이름"/>
+        <input type="password" th:field="*{password}" placeholder="패스워드"/>
+        <button type="submit">제출</button>
+    </form>
+ -->
