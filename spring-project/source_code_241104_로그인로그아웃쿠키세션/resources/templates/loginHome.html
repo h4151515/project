@@ -1,0 +1,20 @@
+<!--상속받을 html 이름을 아래 layout decorate에 넣고, 적용할 최 상위 블럭에 layout fragment를 적용 -->
+<html lang="en" layout:decorate="~{layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <div class="container max600" layout:fragment="content">
+        <div class="py-5 text-center">
+            <h2>홈화면</h2>
+        </div>
+        <div class="row">
+            <div class="row">
+                <p th:text="|${loginMember.name}님 환영 합니다|" class="mb-3 col-7 text-end">000 님 환영 합니다</p>
+                <form th:action="@{/logout}" method="post" class="col-5 text-start">
+                    <button type="submit" class="btn btn-sm btn-outline-info">로그아웃</button>
+                </form>
+            </div>
+            <div class="col">
+                <button type="button" class="w-100 btn btn-lg btn-dark" th:onclick="|location.href='@{/members}'|">회원 목록</button>
+            </div>
+        </div>
+        <hr>
+    </div>
+</html>
