@@ -1,0 +1,41 @@
+<html lang="en" layout:decorate="~{layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:hh="http://www.w3.org/1999/xhtml">
+<div class="container" layout:fragment="content">
+    <div class="py-5 text-center">
+        <h2>질문 목록 보기</h2>
+        <hr>
+    </div>
+    <table class="table table-hover text-center">
+        <thead>
+        <tr class="table-dark">
+            <th>번호</th>
+            <th style="width: 50%;">제목</th>
+            <th>글쓴이</th>
+            <th>작성일자</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="question:${questionList}" class="text-center">
+            <td th:text="${question.id}">1</td>
+            <td>
+               <a th:href="@{/question/detail/{id} (id=${question.id})}" th:text="${question.subject}">제목</a>
+            </td>
+            <td th:text="${question.author !=null ? question.author.name : 'Unknown'}">글쓴이</td>
+            <td th:text="${#temporals.format(question.createDate,'yyyy-MM-dd hh:mm:ss')}">작성일시</td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-dark" role="button" href="/question/create">질문 등록하기</a>
+    </div>
+</div>
+</html>
+<!--
+    1. thymeleaf 반복문 문법 (Controller에서 받아 오는 데이터를 사용하는 방법)
+    <ul>
+        <li th:each="item : ${itemList}" th:text="${item}">기본 리스트 아이템</li>
+    </ul>
+    2. thymeleaf URL 생성 문법
+    <a th:href="@{/path/to/resource(id=${item.id})}">링크 텍스트</a>
+    ** role="" 웹브라우저에 해당 태그의 역할을 알려주기 위한 속성, 예) a 링크를 부트스트랩 버튼으로 사용하는 경우
+ -->

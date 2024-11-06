@@ -1,0 +1,22 @@
+<html lang="en" layout:decorate="~{layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div class="container" layout:fragment="content">
+    <div class="py-5 text-center">
+        <h2>질문 상세 페이지</h2>
+    </div>
+    <div class="mb-3 ">
+        <h4 class="fw-bold" th:text="${questionForm.getSubject()}">제목</h4>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text fs-4" th:text="${questionForm.getContent()}">내용</p>
+            </div>
+            <div class="card-text d-flex justify-content-end">
+                <span class="badge text-bg-secondary">
+                    <p class="m-2" th:if="${questionForm.author != null ? questionForm.author.loginId : 'Unknown'}"></p>
+                    <p class="m-2" th:text="${#temporals.format(questionForm.getCreateDate(),'yyyy-MM-dd hh:mm:ss')}">작성일시</p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
