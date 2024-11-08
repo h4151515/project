@@ -1,8 +1,12 @@
 # project
 ![a](https://github.com/user-attachments/assets/3159018f-b203-4065-9ea5-b0ab15a4fc42)
-- 수정 후 커밋
 
+---
 
+스프링부트 참고 사이트
+https://wikidocs.net/book/7601
+
+---
 README 파일이란?
 
 이곳은 저장소에 대한 설명을 작성함
