@@ -1,0 +1,26 @@
+<html lang="en" layout:decorate="~{layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div class="container" layout:fragment="content">
+    <div class="py-5 text-center">
+        <h2>질문 등록</h2>
+    </div>
+    <div class="mb-3">
+        <form th:Object="${questionForm}" method="post"> <!-- th:action="@{/question/create}" -->
+            <div th:if="${#fields.hasAnyErrors()}" class="alert alert-warning" role="alert">
+                <div th:each="err:${#fields.allErrors()}" th:text="${err}"></div>
+            </div>
+            <div class="mb-3">
+                <label th:for="subject" class="form-label">제목</label>
+                <input type="text"  th:field="*{subject}" class="form-control" th:errorClass="field-error">
+            </div>
+            <div class="mb-3">
+                <label th:for="content" class="form-label">내용</label>
+                <textarea type="text" th:field="*{content}" class="form-control" th:errorClass="field-error" rows="10"></textarea>
+            </div>
+            <hr>
+            <div>
+                <input type="submit" class="btn btn-dark my-2" value="저장하기">
+            </div>
+        </form>
+    </div>
+</div>
+</html>
