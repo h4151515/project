@@ -1,0 +1,17 @@
+@media (max-width: 480px) {
+    #item-pc-list {
+        width: 0 !important;
+        display: none !important;
+        background: #0dcaf0;
+    }
+}
+@media (min-width: 481px) {
+    #item-pc-list {
+        background: #454b48;
+    }
+}
+
+.field-error {
+    border-color: #dc3545;
+    color: #dc3545;
+}
