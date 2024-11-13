@@ -1,0 +1,56 @@
+<html lang="en" layout:decorate="~{/layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/html">
+<div class="container" layout:fragment="content">
+    <div class="row py-3">
+        <div class="col-sm-1 col-md-6 overflow-hidden">
+            <div class="d-flex mt-3 "> <!-- 유투브영역 -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/IlQScQYE4Kw?si=3nCsOqgSQrpaNiGG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="d-flex mt-3"> <!-- 리스트영역 -->
+                <ul id="item-pc-list">
+                    <li>인테리어 견적 바로가기</li>
+                    <li>전원주택 인테리어</li>
+                    <li>아파트 30평대 인테리어</li>
+                    <li>단층 전원주택 인테리어</li>
+                    <li>거실 창호 견적</li>
+                    <li>정원 가꾸기 인테리어</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-6">
+            <div>
+                <form class="form-control bg-warning" th:Object="${contactForm}"  method="post"> <!-- action="contact/add" -->
+                    <div th:if="${#fields.hasAnyErrors()}" class="alert alert-warning" role="alert">
+                        <div th:each="err:${#fields.allErrors()}" th:text="${err}"></div>
+                    </div>
+
+                    <label th:for="name" class="form-label mt-3">이름</label>
+                    <input type="text" th:field="*{name}" class="form-control bg-warning" th:errorClass="field-error" placeholder="이름을 입력하세요">
+                    <div th:errors="*{name}" class="field-error"></div>
+
+                    <label th:for="tel" class="form-label mt-3">전화번호</label>
+                    <input type="tel" th:field="*{tel}" class="form-control bg-warning" th:errorClass="field-error" placeholder="전화번호를 입력하세요">
+                    <div th:errors="*{tel}" class="field-error"></div>
+
+                    <label th:for="email" class="form-label mt-3">이메일</label>
+                    <input type="email" th:field="*{email}" class="form-control bg-warning" th:errorClass="field-error" placeholder="email@abc.com">
+                    <div th:errors="*{email}" class="field-error"></div>
+
+                    <label th:for="inquire" class="form-label mt-3">문의 사항</label>
+                    <textarea type="text" th:field="*{inquire}" class="form-control bg-warning" rows="5" th:errorClass="field-error" placeholder="문의 사항을 남겨 주세요."></textarea>
+                    <div th:errors="*{inquire}" class="field-error"></div>
+
+                    <div class="form-check py-3">
+                        <input class="form-check-input" type="checkbox" value="" th:field="*{newsletter}" checked>
+                        <label class="form-check-label" th:for="newsletter">
+                            이젠 인테리어 뉴스레터 받아보기
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-dark float-end mt-3">전송하기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

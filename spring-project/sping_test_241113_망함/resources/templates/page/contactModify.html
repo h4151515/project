@@ -1,0 +1,70 @@
+<html lang="en" layout:decorate="~{/layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/html">
+<div class="container" layout:fragment="content">
+    <div class="row py-3">
+        <div class="mb-5">
+            <h1 class="text-success fs-3 fw-bold">Contact Modify</h1>
+        </div>
+        <div class="col d-flex mt-5 justify-content-center">
+            <form th:action th:Object="${modifyForm}" method="post" style="width: 600px">
+                <input type="hidden" th:field="*{id}">
+
+                <div th:if="${#fields.hasAnyErrors()}" class="alert alert-warning" role="alert">
+                    <div th:each="err:${#fields.allErrors()}" th:text="${err}"></div>
+                </div>
+
+                <label th:for="name" class="form-label">이름</label>
+                <input type="text" th:field="*{name}" class="form-control" th:errorClass="field-error">
+                <div th:errors="*{name}" class="field-error"></div>
+
+                <label th:for="tel" class="form-label">전화번호</label>
+                <input type="tel" th:field="*{tel}" class="form-control" th:errorClass="field-error">
+                <div th:errors="*{tel}" class="field-error"></div>
+
+                <label th:for="email" class="form-label">이메일</label>
+                <input type="email" th:field="*{email}" class="form-control" th:errorClass="field-error">
+                <div th:errors="*{email}" class="field-error"></div>
+
+                <label th:for="inquire" class="form-label">문의사항</label>
+                <textarea type="text" th:field="*{inquire}" class="form-control" rows="5" th:errorClass="field-error"></textarea>
+                <div th:errors="*{inquire}" class="field-error"></div>
+
+                <div class="form-check">
+                    <input class="form-check-input mt-3" type="checkbox" value="" th:field="*{newsletter}">
+                    <label class="form-check-label" th:for="newsletter">
+                        이젠 인테리어 뉴스레터 받아보기
+                    </label>
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <button type="submit" class="w-100 btn btn btn-dark" >수정하기</button>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <button type="button" class="w-100 btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</button>
+                    </div>
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">삭제 확인</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    정말로 삭제 하시겠습니까?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                                    <a type="button" class="btn btn-danger" th:href="@{/delete/{id} (id=${modifyForm.getId()})}">삭제하기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>
