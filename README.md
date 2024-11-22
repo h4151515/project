@@ -7,6 +7,11 @@
 https://wikidocs.net/book/7601
 
 ---
+
+코딩테스트 연습 사이트
+[https://wikidocs.net/book/7601](https://school.programmers.co.kr/learn/challenges?order=recent&page=1&levels=0)
+
+---
 README 파일이란?
 
 이곳은 저장소에 대한 설명을 작성함
